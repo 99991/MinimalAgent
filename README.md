@@ -1,4 +1,10 @@
-MinimalAgent is a minimal AI agent with tool calling and zero dependencies in 60 lines of Python:
+Minimal AI agent with tool calling and zero dependencies in 60 lines of Python
+
+<div align="center">
+    <img alt="Agent demo execution example" src="https://github.com/user-attachments/assets/27e05a96-3e80-4609-a7d9-6333df2b3b26" />
+</div>
+
+# Code
 
 ```python
 import json
@@ -113,3 +119,15 @@ def call_llm(messages, url="http://127.0.0.1:8080/v1/chat/completions"):
 ```
 
 4. Run `python agent.py`
+
+# Explanation
+
+At its core, AI agents are very simple. All they do is:
+
+1. Append the user's prompt to the current context
+2. Query an LLM for tool calls and text replies
+3. Run the tools (`bash` in our case)
+4. Append the tool outputs and text reply to the context
+5. Continue at 1.
+
+Since LLMs are very proficient in using `bash`, they don't necessarily require any other tools. They can just use `bash` to do whatever they need, e.g. edit files using `sed` or make HTTP requests using `curl`.
