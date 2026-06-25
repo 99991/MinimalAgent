@@ -53,7 +53,7 @@ while True:
         tool_calls = msg.get("tool_calls")
 
         if not tool_calls:
-            print(msg.get("content", ""))
+            print(f"Reply:\n{msg.get('content', '')}")
             break
 
         for tool_call in tool_calls:
